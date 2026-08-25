@@ -1,0 +1,23 @@
+{
+  "name": "fibonacci_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diavor02/fibo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diavor02/fibo/issues"
+  },
+  "homepage": "https://github.com/diavor02/fibo#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
