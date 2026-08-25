@@ -2,11 +2,16 @@ const express = require('express');
 const crypto = require('crypto');
 
 const app = express();
-const PORT = Number.parseInt(process.env.PORT, 10) || 80;
+const PORT = Number.parseInt(process.env.PORT, 10) || 3000;
 const HOST = '0.0.0.0';
 
 app.use(express.static('public'));
 
+app.get('/health', (_req, res) => {
+  return res.status(200).json({
+    status: 'ok',
+  });
+});
 
 /**
  * Hashes a string n times using SHA-256.
@@ -39,6 +44,10 @@ app.get('/grind', (req, res) => {
   });
 });
 
-app.listen(PORT, HOST, () => {
+const server = app.listen(PORT, HOST, () => {
   console.log(`Hash Grinder running on http://${HOST}:${PORT}`);
+});
+
+server.on('error', (err) => {
+  console.error('Server failed to start:', err.message);
 });
