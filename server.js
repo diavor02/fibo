@@ -2,7 +2,8 @@ const express = require('express');
 const crypto = require('crypto');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number.parseInt(process.env.PORT, 10) || 80;
+const HOST = '0.0.0.0';
 
 app.use(express.static('public'));
 
@@ -38,6 +39,6 @@ app.get('/grind', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Hash Grinder running on http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Hash Grinder running on http://${HOST}:${PORT}`);
 });
